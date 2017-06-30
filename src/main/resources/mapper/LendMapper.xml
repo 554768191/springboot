@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.demo.spring.service.LendService">
+    <!--<resultMap id="BaseResultMap" type="org.demo.spring.model.User">
+        <result column="id" property="id" />
+        <result column="nickName" property="username" />
+        <result column="password" property="password" />
+        <result column="mobile" property="tel" />
+    </resultMap>-->
+    <parameterMap id="Lend" type="org.demo.spring.model.Lend"/>
+    <select id="queryLends" parameterType="String" resultType="java.util.HashMap">
+        select * from t_lend t
+        where 1=1
+            <if test="lendName!=null and lendName!='' ">
+                and t.lendName like CONCAT(CONCAT('%', #{lendName}),'%')
+            </if>
+    </select>
+</mapper>
