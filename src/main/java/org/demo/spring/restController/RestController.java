@@ -1,5 +1,6 @@
 package org.demo.spring.restController;
 
+import org.demo.spring.core.TimeUtil;
 import org.demo.spring.model.Lend;
 import org.demo.spring.model.Loan;
 import org.demo.spring.model.User;
@@ -27,8 +28,8 @@ public class RestController {
     private LendService lendService;
     @RequestMapping(value = "/restControl/register", method = RequestMethod.POST)
     public String register(@RequestBody User user) {
-        //user.setRegtime(TimeUtil.getCurrentTime());
-        user.setRegtime(Long.toString(System.currentTimeMillis()));
+        user.setRegtime(TimeUtil.getCurrentTime());
+//        user.setRegtime(Long.toString(System.currentTimeMillis()));
         userService.saveUser(user);
         return "success";
     }
