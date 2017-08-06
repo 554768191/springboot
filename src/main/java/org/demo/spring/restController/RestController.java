@@ -35,11 +35,20 @@ public class RestController {
     }
     @RequestMapping(value = "/restControl/login", method = RequestMethod.POST)
     public String login(@RequestBody User user) {
-        if(userService.getPasswordByUserName(user.username).equals(user.getPassword())){
-            return "0";
+        User usertemp = userService.getUser(user.getUsername());
+        if(null != usertemp){
+            /*已注册用户、调用登录逻辑*/
+            if(userService.getPasswordByUserName(user.username).equals(user.getPassword())){
+                return "0";
+            }else{
+                return "1";
+            }
         }else{
-            return "1";
+            /*新用户、调用注册逻辑*/
+            userService.saveUser(user);
+            this.login(user);
         }
+        return "1";
     }
     /*@20170628*/
     @RequestMapping(value = "/restControl/queryLoans", method = RequestMethod.POST)

@@ -7,5 +7,6 @@ import org.demo.spring.model.User;
  */
 public interface UserDao {
     Long saveUser(User user);
+    User getUser(String username);
     String getPasswordByUserName(String username);
 }
