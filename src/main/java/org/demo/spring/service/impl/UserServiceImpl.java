@@ -4,10 +4,11 @@ import org.demo.spring.dao.UserDao;
 import org.demo.spring.model.User;
 import org.demo.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 /**
  * Created by Administrator on 2017/6/25 0025.
  */
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired

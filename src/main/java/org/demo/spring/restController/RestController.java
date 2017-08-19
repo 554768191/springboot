@@ -39,21 +39,21 @@ public class RestController {
         if(null != usertemp){
             /*已注册用户、调用登录逻辑*/
             if(userService.getPasswordByUserName(user.username).equals(user.getPassword())){
-                return "0";
+                return "0";//验证成功！
             }else{
-                return "1";
+                return "1";//用户名或密码不正确！
             }
         }else{
             /*新用户、调用注册逻辑*/
             userService.saveUser(user);
             this.login(user);
         }
-        return "1";
+        return "0";//验证成功！
     }
     /*@20170628*/
     @RequestMapping(value = "/restControl/queryLoans", method = RequestMethod.POST)
-    public List<Loan> queryLoans(String loanName) {
-        return loanService.queryLoans(loanName);
+    public List<Loan> queryLoans(String loanName,String loanPersonId) {
+        return loanService.queryLoans(loanName,loanPersonId);
     }
 
     /*@20170629*/
