@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.demo.spring.dao.UserDao">
+    <resultMap id="BaseUser" type="org.demo.spring.model.User">
+        <result column="id" property="id" />
+        <result column="nickName" property="username" />
+        <result column="password" property="password" />
+        <result column="mobile" property="tel" />
+    </resultMap>
+    <parameterMap id="User" type="org.demo.spring.model.User"/>
+    <insert id="saveUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        t_user(id,nickName,password,mobile,regTime)
+        values
+        (#{id},#{username},#{password},#{tel},#{regtime})
+    </insert>
+    <select id="getPasswordByUserName" parameterType="String" resultType="String">
+        select password from t_user t where t.nickName=#{username}
+    </select>
+    <select id="getUser" parameterType="String" resultMap="BaseUser">
+        select * from t_user t where t.nickName=#{username}
+    </select>
+</mapper>

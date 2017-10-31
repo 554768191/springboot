@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.demo.spring.dao.LoanDao">
+    <parameterMap id="Loan" type="org.demo.spring.model.Loan"/>
+    <select id="queryLoans" resultType="java.util.HashMap">
+        select * from t_loan t
+        where 1=1
+            <if test="loanName!=null and loanName!='' ">
+                and t.loanName like CONCAT(CONCAT('%', #{loanName}),'%')
+            </if>
+        <if test="loanPersonId!=null and loanPersonId!='' ">
+            and t.loanPersonId ==#{loanPersonId}
+        </if>
+    </select>
+</mapper>
