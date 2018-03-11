@@ -24,7 +24,7 @@ public class RestController {
     private String htmlSavePath;
     @Autowired
     private BlogService blogService;
-    @RequestMapping(value = "/blogControl/getAllBlog",method = RequestMethod.POST)
+    @RequestMapping(value = "/blogControl/getAllBlog",method = RequestMethod.GET)
     public List<Blog> getAllBlog(){
         return blogService.queryAllBlog();
     }
