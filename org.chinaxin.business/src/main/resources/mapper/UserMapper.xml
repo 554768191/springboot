@@ -20,4 +20,7 @@
     <select id="getUser" parameterType="String" resultMap="BaseUser">
         select * from t_user t where t.nickName=#{username}
     </select>
+    <select id="queryUsers" resultMap="BaseUser">
+        select * from t_user t
+    </select>
 </mapper>

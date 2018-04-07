@@ -70,6 +70,11 @@ public class RestController {
     public List<Lend> queryLends(String lendName) {
         return lendService.queryLends(lendName);
     }
+    /*@20170629*/
+    @RequestMapping(value = "/restControl/queryUsers", method = RequestMethod.GET)
+    public List<User> queryUsers() {
+        return userService.queryUsers();
+    }
 
     /**
      * 微信消息接收和token验证
