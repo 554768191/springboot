@@ -5,7 +5,7 @@
 		    1、网站流量统计（暂时使用百度统计）
 		<module>org.myqcode.business</module><!--博客前台业务模块-->
 		    1、提供博客新增、修改、删除的接口
-        <module>org.myqcode.api.csdn.blog</module><!--博客后台管理模块-->
+        <module>org.myqcode.api.csdn.video</module><!--博客后台管理模块-->
             1、网站博客同步到CSDN的api接口
             2、网站博客同步到新浪微博的api接口
             3、后台定时任务管理配置

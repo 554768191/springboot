@@ -11,8 +11,9 @@
 		<module>org.chinaxin.business.suggest</module><!--网站前台业务模块-->
 		<module>org.chinaxin.manager</module><!--网站后台管理模块-->
 		<module>org.myqcode.business</module><!--博客前台业务模块-->
-        <module>org.myqcode.api.csdn.blog</module>
-        <module>org.chinaxin.web.vue.sms</module><!--博客后台管理模块-->
+        <module>org.myqcode.api.csdn.video</module><!--博客后台管理模块-->
+        <module>org.chinaxin.web.vue.sms</module>
+		<module>org.shzhyun.api.splider</module>
 	</modules>
 	<packaging>pom</packaging>
 

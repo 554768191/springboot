@@ -63,7 +63,7 @@
 <script src="../../js/jquery.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../js/editormd.js"></script>
-<script src="../js/blog.js"></script>
+<script src="../js/video.js"></script>
 
 </body>
 </html>
