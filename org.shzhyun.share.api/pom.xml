@@ -9,7 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>splider</artifactId>
+    <artifactId>org.shzhyun.share.api</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

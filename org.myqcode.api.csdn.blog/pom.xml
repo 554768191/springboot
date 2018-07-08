@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>org.myqcode.api.csdn.video</artifactId>
+    <artifactId>org.myqcode.api.csdn.blog</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.freemarker</groupId>
