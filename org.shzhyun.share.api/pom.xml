@@ -19,6 +19,41 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--远程部署-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>upload</goal>
+                            <goal>sshexec</goal>
+                        </goals>
+                        <configuration>
+                            <fromDir>target</fromDir>
+                            <includes>org.shzhyun.share.api-0.0.1-SNAPSHOT.jar</includes>
+                            <url>scp://root:Yang729729@39.104.181.79/chinaxin/temp/</url>
+                            <commands>
+                                <command>cp /chinaxin/temp/org.shzhyun.share.api-0.0.1-SNAPSHOT.jar /chinaxin/share/</command>
+                                <command>sh restartshare.sh</command>
+                                <command>sh demo.sh</command>
+                                <!--<command>pkill -9 java</command>-->
+                                <!--<command>nohup java -jar org.shzhyun.share.api-0.0.1-SNAPSHOT.jar</command>-->
+                            </commands>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 
-
+    </build>
 </project>

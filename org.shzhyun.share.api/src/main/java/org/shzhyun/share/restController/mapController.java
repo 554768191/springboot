@@ -80,6 +80,7 @@ public class mapController extends ConstInf {
             objresF.put("longitude",longitudeFromVaule);
             objresF.put("iconPath","/images/markerF.png");
             objresF.put("bindId",bindId);
+            objresF.put("key",k);
             objresF.put("pointType","start");
             res.add(objresF);
             //终点
@@ -91,6 +92,7 @@ public class mapController extends ConstInf {
             objresT.put("longitude",longitudeFromVaule);
             objresT.put("iconPath","/images/markerT.png");
             objresT.put("bindId",bindId);
+            objresF.put("key",k);
             objresT.put("pointType","end");
             res.add(objresT);
         }
@@ -114,7 +116,14 @@ public class mapController extends ConstInf {
         logger.info(obj.get("id")+":"+obj.get("createtime")+":"+obj.get("latitudeFrom")+":"+obj.get("longitudeFrom")+":"+obj.get("title"));
         return "success";
     }
-
+    @RequestMapping(value = "/maControl/jiedan", method = RequestMethod.POST)
+    public String jiedan(@RequestBody HashMap<String,Object> obj){
+        obj.put("status","1");
+        obj.put("updatetime",TimeUtil.getCurrentTime());
+        redisTemplate.opsForValue().set(obj.get("key").toString(),obj);
+        logger.info("接单成功！");
+        return "success";
+    }
     @RequestMapping(value = "/mapControl/addLocTest",method = RequestMethod.POST)
     public String addLoctest(){
         HashMap<String,Object> obj = new HashMap<>();
