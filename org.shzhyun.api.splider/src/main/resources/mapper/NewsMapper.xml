@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.chinaxin.api.VideoDao">
+    <resultMap id="BaseVideo" type="Video">
+        <result column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="title" property="title" />
+        <result column="htmlpath" property="htmlpath" />
+        <result column="addtime" property="addtime" />
+    </resultMap>
+    <parameterMap id="Video" type="Video"/>
+    <insert id="saveBlog" parameterMap="Video" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        t_blog(id,username,title,htmlpath,content,addtime)
+        values
+        (#{id},#{username},#{title},#{htmlpath},#{content},#{addtime})
+    </insert>
+    <select id="queryAllBlog" resultType="java.util.HashMap">
+        select * from t_blog t
+        where 1=1 ORDER by t.addtime;
+    </select>
+</mapper>
